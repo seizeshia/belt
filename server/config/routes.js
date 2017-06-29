@@ -11,5 +11,5 @@ module.exports = (app) =>{
   app.get('/checker',controller.checker)
   app.post('/commentliking', controller.commentliking)
   app.post('/grabmessage', controller.grabmessage)
-  app.get('getusername', controller.getusername)
+  app.get('/getusername', controller.getusername)
 }

@@ -85,11 +85,7 @@ var Comment = mongoose.model('Comment')
       })
     },
     commenting: (request, response)=>{
-      console.log('creating comment', "****************************")
-      console.log(request.body)
-      if(request.body.formstuff.content.length < 5 ){
-        response.sendStatus(500)
-      }
+
       // console.log(request.params, ******************)
       Messages.findOne({_id: request.body.messid}).exec(function(err, thepost){
         console.log(thepost)
@@ -238,6 +234,7 @@ var Comment = mongoose.model('Comment')
       })
     },
     getusername: (request, response)=>{
+      console.log(request.session._id)
       Users.findOne({_id:request.session.user._id}).exec(function(err,username){
         response.json({username:username.username})
       })
